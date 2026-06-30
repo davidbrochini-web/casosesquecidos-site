@@ -1,0 +1,491 @@
+/* ==========================================================================
+   Casos Esquecidos — folha de estilo compartilhada
+   Conceito: ficha de investigação / arquivo de caso.
+   ========================================================================== */
+
+:root {
+  /* Cor */
+  --bg:          #0b0a08;
+  --bg-panel:    #15120e;
+  --bg-panel-2:  #1c1812;
+  --line:        #322c22;
+  --gold:        #cdb077;
+  --gold-dim:    #8f7c54;
+  --blood:       #9c2b2b;
+  --blood-bright:#c43a3a;
+  --paper:       #e8dfc8;
+  --paper-dim:   #b7ad94;
+  --muted:       #6f6858;
+
+  /* Tipografia */
+  --font-display: "Cinzel", "Times New Roman", serif;
+  --font-body:    "EB Garamond", Georgia, serif;
+  --font-mono:    "JetBrains Mono", "Courier New", monospace;
+
+  --measure: 64rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--paper);
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 1.125rem;
+  line-height: 1.7;
+  background-image:
+    radial-gradient(ellipse at 20% -10%, rgba(156,43,43,0.08), transparent 45%),
+    radial-gradient(ellipse at 90% 10%, rgba(205,176,119,0.05), transparent 40%);
+  background-attachment: fixed;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: var(--gold); text-decoration: none; }
+a:hover { color: var(--blood-bright); }
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+::selection { background: var(--blood); color: var(--paper); }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--paper);
+  margin: 0;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-dim);
+}
+
+.container {
+  max-width: var(--measure);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ---------- Header / nav ---------- */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: rgba(11,10,8,0.88);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--line);
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 4.25rem;
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  color: var(--paper);
+  text-transform: uppercase;
+}
+.brand span { color: var(--blood-bright); }
+.brand:hover { color: var(--paper); }
+
+.site-nav {
+  display: flex;
+  gap: 1.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.site-nav a { color: var(--paper-dim); }
+.site-nav a:hover { color: var(--gold); }
+
+/* ---------- Buttons ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.85rem 1.5rem;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+
+.btn-primary {
+  background: var(--blood);
+  color: var(--paper);
+  border-color: var(--blood);
+}
+.btn-primary:hover { background: var(--blood-bright); color: var(--paper); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--gold);
+  border-color: var(--gold-dim);
+}
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+/* ---------- Hero ---------- */
+
+.hero {
+  border-bottom: 1px solid var(--line);
+}
+
+.hero .container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+@media (min-width: 880px) {
+  .hero .container {
+    grid-template-columns: 1.05fr minmax(0, 0.95fr);
+    align-items: center;
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
+}
+
+.hero-copy .eyebrow { margin-bottom: 1rem; display: block; }
+
+.hero-title {
+  font-size: clamp(2.1rem, 5vw, 3.4rem);
+  line-height: 1.08;
+}
+.hero-title .accent { color: var(--blood-bright); }
+
+.hero-sub {
+  margin-top: 1.25rem;
+  font-size: 1.2rem;
+  color: var(--paper-dim);
+  max-width: 38ch;
+}
+
+.hero-actions {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.hero-cover {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  margin-inline: auto;
+  justify-self: center;
+}
+.hero-cover img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1024 / 1536;
+  object-fit: cover;
+  border: 1px solid var(--line);
+  box-shadow: 0 30px 60px -20px rgba(0,0,0,0.7);
+}
+.hero-cover::after {
+  content: "";
+  position: absolute;
+  inset: 14px -14px -14px 14px;
+  border: 1px solid var(--gold-dim);
+  z-index: -1;
+}
+
+/* ---------- Sections ---------- */
+
+section { padding: 4.5rem 0; }
+section + section { border-top: 1px solid var(--line); }
+
+.section-head {
+  margin-bottom: 2.5rem;
+  max-width: 56ch;
+}
+.section-head h2 {
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  margin-top: 0.6rem;
+}
+.section-head p {
+  color: var(--paper-dim);
+  margin-top: 0.85rem;
+}
+
+/* ---------- Universo (texto longo) ---------- */
+
+.lore p {
+  max-width: 68ch;
+  color: var(--paper-dim);
+}
+.lore p + p { margin-top: 1.1rem; }
+.lore strong { color: var(--gold); font-weight: 600; }
+
+/* ---------- Sinopse / livro ---------- */
+
+.book-block {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 880px) {
+  .book-block { grid-template-columns: minmax(0, 0.4fr) minmax(0, 0.6fr); }
+}
+
+.synopsis blockquote {
+  margin: 0;
+  padding-left: 1.25rem;
+  border-left: 2px solid var(--blood);
+  color: var(--paper-dim);
+  font-style: italic;
+}
+.synopsis ul {
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.synopsis li {
+  padding: 0.55rem 0;
+  border-bottom: 1px dotted var(--line);
+  color: var(--paper-dim);
+}
+.synopsis li::before {
+  content: "—";
+  color: var(--blood-bright);
+  margin-right: 0.6rem;
+}
+
+/* ---------- Case file cards (contos) ---------- */
+
+.case-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 700px) {
+  .case-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.case-card {
+  position: relative;
+  background: var(--bg-panel);
+  border: 1px solid var(--line);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.case-card:hover { border-color: var(--gold-dim); transform: translateY(-2px); }
+
+.case-card .case-number {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--blood-bright);
+}
+
+.case-card h3 {
+  font-size: 1.35rem;
+  line-height: 1.25;
+}
+
+.case-card .case-excerpt {
+  color: var(--paper-dim);
+  font-size: 0.98rem;
+}
+
+.case-card .case-meta {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.status-tag {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border: 1px solid var(--gold-dim);
+  color: var(--gold);
+}
+
+.case-card.locked { opacity: 0.55; }
+.case-card.locked .status-tag { border-color: var(--muted); color: var(--muted); }
+
+/* ---------- Apoio / Pix ---------- */
+
+.support-block {
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: 1fr;
+  align-items: center;
+}
+@media (min-width: 880px) {
+  .support-block { grid-template-columns: 0.55fr 0.45fr; }
+}
+
+.qr-frame {
+  background: var(--paper);
+  padding: 1.25rem;
+  width: fit-content;
+  border: 1px solid var(--line);
+}
+.qr-frame img { width: 180px; }
+
+.pix-key {
+  margin-top: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: var(--gold);
+  background: var(--bg-panel-2);
+  border: 1px solid var(--line);
+  padding: 0.65rem 0.9rem;
+  display: inline-block;
+}
+
+/* ---------- Section background images ---------- */
+
+.section-bg {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  isolation: isolate;
+}
+.section-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(11,10,8,0.88) 0%, rgba(11,10,8,0.93) 50%, var(--bg) 100%);
+}
+.section-bg.hero-bg::before {
+  background: linear-gradient(100deg, rgba(11,10,8,0.96) 0%, rgba(11,10,8,0.82) 45%, rgba(11,10,8,0.55) 100%);
+}
+
+.hero-bg { background-image: url('bg/hero-alley.jpg'); }
+.universo-bg { background-image: url('bg/universo-cult.jpg'); }
+.livro-bg { background-image: url('bg/livro-desk.jpg'); }
+.contos-bg { background-image: url('bg/contos-grave.jpg'); }
+.apoio-bg { background-image: url('bg/apoio-door.jpg'); }
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding: 3rem 0;
+}
+.site-footer .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.footer-links a { color: var(--paper-dim); }
+.footer-note {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+
+/* ---------- Página de conto (leitura) ---------- */
+
+.story-header {
+  padding-top: 3.5rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid var(--line);
+}
+.story-header .case-number { font-family: var(--font-mono); color: var(--blood-bright); font-size: 0.8rem; letter-spacing: 0.1em; }
+.story-header h1 {
+  margin-top: 0.75rem;
+  font-size: clamp(2rem, 4.5vw, 2.9rem);
+  max-width: 22ch;
+}
+.story-header .byline {
+  margin-top: 1rem;
+  color: var(--paper-dim);
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+}
+
+.story-body {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 1rem;
+  font-size: 1.18rem;
+  line-height: 1.85;
+}
+.story-body p { margin: 0 0 1.3rem; }
+.story-divider {
+  text-align: center;
+  color: var(--gold-dim);
+  margin: 2.2rem 0;
+  letter-spacing: 0.4em;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+}
+
+.story-end {
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 1rem 1.5rem 4.5rem;
+  text-align: center;
+}
+.story-end .eyebrow { display: block; margin-bottom: 1rem; }
+.story-end-actions {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ---------- Utilidades ---------- */
+
+.text-center { text-align: center; }
+.mt-lg { margin-top: 2.5rem; }
