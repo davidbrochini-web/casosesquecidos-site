@@ -553,3 +553,59 @@ section + section { border-top: 1px solid var(--line); }
   display: block;
   border-bottom: 1px solid var(--line);
 }
+
+/* ---------- Lista de casos do livro ---------- */
+
+.livro-caso-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--line);
+  transition: background 0.15s ease, padding-left 0.15s ease;
+}
+.livro-caso-item:hover {
+  background: rgba(255,255,255,0.02);
+  padding-left: 0.5rem;
+}
+
+.livro-caso-num {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  color: var(--muted);
+  min-width: 2rem;
+  flex-shrink: 0;
+}
+
+.livro-caso-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  flex: 1;
+}
+.livro-caso-info strong {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--paper);
+  font-weight: 500;
+}
+.livro-caso-info span {
+  font-size: 0.82rem;
+  color: var(--muted);
+  font-style: italic;
+}
+
+.livro-caso-tag {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.livro-caso-tag.aberto   { color: var(--blood-bright); border-color: var(--blood); }
+.livro-caso-tag.fechado  { color: var(--muted);        border-color: var(--line);  }
+.livro-caso-tag.perdido  { color: #7a5a20;             border-color: #5a3a00;      }
