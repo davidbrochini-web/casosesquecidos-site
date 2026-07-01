@@ -529,3 +529,27 @@ section + section { border-top: 1px solid var(--line); }
 
 .text-center { text-align: center; }
 .mt-lg { margin-top: 2.5rem; }
+
+/* ---------- Card de conto com imagem ---------- */
+
+.case-card-img {
+  width: calc(100% + 3.5rem);
+  margin: -1.75rem -1.75rem 1.25rem;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+  filter: brightness(0.88);
+  transition: filter 0.2s ease;
+}
+.case-card:hover .case-card-img { filter: brightness(1); }
+
+/* ---------- Banner de ilustração do conto ---------- */
+
+.story-banner {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  object-position: center 30%;
+  display: block;
+  border-bottom: 1px solid var(--line);
+}
