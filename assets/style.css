@@ -285,7 +285,16 @@ section + section { border-top: 1px solid var(--line); }
   grid-template-columns: 1fr;
 }
 @media (min-width: 880px) {
-  .book-block { grid-template-columns: minmax(0, 0.4fr) minmax(0, 0.6fr); }
+  .book-block { grid-template-columns: minmax(0, 0.38fr) minmax(0, 0.62fr); }
+}
+
+/* capa na seção do livro — maior que na hero */
+.book-cover-secondary {
+  max-width: 100%;
+  margin-inline: auto;
+}
+@media (min-width: 880px) {
+  .book-cover-secondary { max-width: 300px; margin-inline: 0; }
 }
 
 .synopsis blockquote {
@@ -320,6 +329,9 @@ section + section { border-top: 1px solid var(--line); }
 }
 @media (min-width: 700px) {
   .case-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1100px) {
+  .case-grid { grid-template-columns: repeat(3, 1fr); }
 }
 
 .case-card {

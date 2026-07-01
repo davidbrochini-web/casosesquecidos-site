@@ -1,0 +1,8 @@
+# Casos Esquecidos — casosesquecidos.com.br
+# Robôs de busca e IAs são bem-vindos para indexar este conteúdo.
+
+User-agent: *
+Allow: /
+
+# Sitemap para facilitar a indexação
+Sitemap: https://casosesquecidos.com.br/sitemap.xml
