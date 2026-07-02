@@ -83,6 +83,24 @@ h1, h2, h3 {
   padding: 0 1.5rem;
 }
 
+/* ---------- Barra de anúncio ---------- */
+
+.announce-bar {
+  background: var(--blood);
+  text-align: center;
+  padding: 0.55rem 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+}
+.announce-bar a {
+  color: var(--paper);
+  text-decoration: none;
+  display: block;
+}
+.announce-bar a:hover { color: #fff; }
+.announce-bar strong { font-weight: 600; }
+
 /* ---------- Header / nav ---------- */
 
 .site-header {
